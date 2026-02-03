@@ -1,0 +1,146 @@
+/* * - обращение ко всем тэгам, убираем все отступы и границы */
+*{                                
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+/*изменение подсчета ширины блока*/
+*,*::before,*::after{               
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;   /* изменяет алгорит рассчета, меняет стандартный рассчет на более удобный, влючая в себя значение полей границ, но не внешних отступов */
+}
+/* убираем линии обводки у браузеров */
+:focus,:active{outline: none;}    
+a:focus,a:active{outline: none;}
+/* добавление блочного значения  */
+nav,footer,header,aside{display: block;}    
+/* уравнивают поведение шрифтов и элементов для разных браузеров, запрещают увеличение шрифтом самовольно */
+html, body{                         
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+/* наследование семейства шрифтов  */
+input,button,textarea{font-family: inherit;} 
+/*  убирает особенности браузеров */
+input::-ms-clear{display: none;}         /* убирает крестик exploer  */
+button{cursor: pointer;}                 /* убирают лишние отступы firefox */
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+/* обнуление заголовков */
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+/*--------------------------------------------------------------------------*/
+body{
+    font-size: 14px;
+    margin: 123px 0 0 291px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.text{
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.list li:nth-child(1){
+    text-decoration: line-through;
+}
+.list li:nth-child(2){
+    font-weight: 700;
+}
+.list li:nth-child(3){
+    font-style: italic;
+}
+.list li:nth-child(4){
+    text-transform: uppercase;
+}
+
+.list li::before{
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: aqua;
+    display: inline-block;
+    margin: 10px 10px 0 0;
+}
+
+.list2 li::before{
+    content:'';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: aqua;
+    display: inline-block;
+    margin: 10px 10px 0 0;
+}
+
+.list2 li:nth-child(2):hover{
+    color: red;
+}
+
+.list2 li:nth-child(2):hover:before{
+    content: '';
+    display: inline-block;
+    background-color: red;
+}
+
+.story{
+    width: 200px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: aquamarine;
+    color: white;
+    text-transform: uppercase;
+    margin: 100px 0 0 0;
+}
+
+.story::after{
+    content: '-->';
+    display: inline-block;
+    margin: 0 0 0 5px;
+}
+
+.story:hover{
+    background-color: green;
+}
+
+.story:active{
+    background-color: gray;
+}
+
+.lorem{
+    width: 600px;
+    height: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 50px 0 0 0;
+    text-align: justify;
+}
+
+.lorem::first-line{
+    color: red;
+}
+
+.lorem2{
+    width: 600px;
+    height: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 50px 0 0 0;
+    text-align: justify;
+}
+
+.lorem2::first-letter{
+    color: red;
+    font-size: 20px;
+}
