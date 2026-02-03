@@ -1,0 +1,98 @@
+/* * - обращение ко всем тэгам, убираем все отступы и границы */
+*{                                
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+/*изменение подсчета ширины блока*/
+*,*::before,*::after{               
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;   /* изменяет алгорит рассчета, меняет стандартный рассчет на более удобный, влючая в себя значение полей границ, но не внешних отступов */
+}
+/* убираем линии обводки у браузеров */
+:focus,:active{outline: none;}    
+a:focus,a:active{outline: none;}
+/* добавление блочного значения  */
+nav,footer,header,aside{display: block;}    
+/* уравнивают поведение шрифтов и элементов для разных браузеров, запрещают увеличение шрифтом самовольно */
+html, body{                         
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+/* наследование семейства шрифтов  */
+input,button,textarea{font-family: inherit;} 
+/*  убирает особенности браузеров */
+input::-ms-clear{display: none;}         /* убирает крестик exploer  */
+button{cursor: pointer;}                 /* убирают лишние отступы firefox */
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+/* обнуление заголовков */
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+/*--------------------------------------------------------------------------*/
+
+body{
+    padding: 30px;
+}
+
+.text{
+    font-size: 24px;
+    line-height: 33px;
+    margin: 0px 0px 30px 0px;
+}
+
+.text::first-line{      /* задает стиль первой строки текста  */
+    color: green;
+}
+
+.text::first-letter{    /* задает стиль первой букве */
+    color: red;
+    font-size: 50px;
+}
+
+.list{
+
+}
+
+.list li{
+    font-size: 24px;
+    margin: 0px 0px 20px 0px;
+}
+
+/* .list li::before{        применяется для отображения желаемого контента содержимого элемента, к которому он добавляется  
+    content: '*';     обязательно при before, для отображения в браузере!!! Либо пустое, либо контент 
+}
+.list li::after{        применяется для отображения контента после содержимого элемента к которому он добавляется! 
+    content: '*';
+}  */
+
+.list li::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+/* input::-ms-clear{ уникальный псевдоэлемент, убирающий в пункте ввода в exployer крестик очистки
+    display: none;
+*/
+
+/* button::-moz-focus-inner{  уникальный псевдоэлемент, убирает лишние отступы и пробелы в mozilla
+    padding: 0;border: 0;
+} */
+
+.list li:hover::before{     /* есть возможность наложения на псевдоклассы(1) псевдоэлементов(2)*/
+    background-color: yellow; 
+}
